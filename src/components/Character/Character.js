@@ -1,9 +1,15 @@
 import React from 'react';
+import './Character.css';
 
 export default function Character({ head }) {
   return (
     <div className="character">
-      <div className="headImage" style={{ backgroundImage: `url(./${head}-head.webp)` }}></div>
+      <div
+        className="head-img"
+        style={{ backgroundImage: `url(./${head}-head.webp)`, height: '100px' }}
+      >
+        Head
+      </div>
     </div>
   );
 }
