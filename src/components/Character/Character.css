@@ -2,5 +2,6 @@
 .shirt-img,
 .pants-img {
   background-repeat: no-repeat;
-  background-image: 200px;
+  background-size: 200px;
+  height: 175px;
 }

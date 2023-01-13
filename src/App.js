@@ -11,6 +11,16 @@ function App() {
   const [shirtCount, setShirtCount] = useState(0);
   const [pants, setPants] = useState('red');
   const [pantsCount, setPantsCount] = useState(0);
+  const [input, setInput] = useState('');
+  const [catchphrases, setCatchphrases] = useState([]);
+
+  const handleClick = () => {
+    if (!input) return;
+    setCatchphrases((prevState) => {
+      return [...prevState, input];
+    });
+    setInput('');
+  };
   const handleChange = (type, value) => {
     if (type === 'head') {
       setHead(value);
@@ -36,16 +46,18 @@ function App() {
               setHead,
               setHeadCount,
               handleChange,
+              handleClick,
               setShirt,
               shirt,
               setShirtCount,
               pants,
               setPants,
               setPantsCount,
+              setInput,
             }}
           />
 
-          <Stats {...{ headCount, shirtCount, pantsCount }} />
+          <Stats {...{ headCount, shirtCount, pantsCount, catchphrases }} />
         </div>
         <div className="right">
           <Character {...{ head, shirt, pants }} />
