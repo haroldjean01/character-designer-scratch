@@ -2,15 +2,27 @@ import './App.css';
 import React, { useState } from 'react';
 import Character from './components/Character/Character.js';
 import Form from './components/Form/Form.js';
-// import Stats from './components/Stats';
+import Stats from './components/Stats/Stats.js';
 
 function App() {
-  const [head, setHead] = useState('dog');
+  const [head, setHead] = useState('girl');
   const [headCount, setHeadCount] = useState(0);
+  const [shirt, setShirt] = useState('tiger');
+  const [shirtCount, setShirtCount] = useState(0);
+  const [pants, setPants] = useState('red');
+  const [pantsCount, setPantsCount] = useState(0);
   const handleChange = (type, value) => {
     if (type === 'head') {
       setHead(value);
       setHeadCount(headCount + 1);
+    }
+    if (type === 'shirt') {
+      setShirt(value);
+      setShirtCount(shirtCount + 1);
+    }
+    if (type === 'pants') {
+      setPants(value);
+      setPantsCount(pantsCount + 1);
     }
   };
   return (
@@ -18,12 +30,25 @@ function App() {
       <h1>Character Designer</h1>
       <section>
         <div className="left">
-          <Form {...{ head, handleChange }} />
+          <Form
+            {...{
+              head,
+              setHead,
+              setHeadCount,
+              handleChange,
+              setShirt,
+              shirt,
+              setShirtCount,
+              pants,
+              setPants,
+              setPantsCount,
+            }}
+          />
 
-          {/* <Stats /> */}
+          <Stats {...{ headCount, shirtCount, pantsCount }} />
         </div>
         <div className="right">
-          <Character {...{ head }} />
+          <Character {...{ head, shirt, pants }} />
         </div>
       </section>
     </main>

@@ -1,3 +1,6 @@
-.head-img {
+.head-img,
+.shirt-img,
+.pants-img {
   background-repeat: no-repeat;
+  background-image: 200px;
 }
