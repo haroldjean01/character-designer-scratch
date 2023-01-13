@@ -1,0 +1,7 @@
+.head-img,
+.shirt-img,
+.pants-img {
+  background-repeat: no-repeat;
+  background-size: 100px;
+  height: 100px;
+}
